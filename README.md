@@ -2,6 +2,22 @@
 [![Build pass](https://github.com/aave/aave-stake-v2/actions/workflows/node.js.yml/badge.svg)](https://github.com/aave/aave-stake-v2/actions/workflows/node.js.yml)
 [![codecov](https://codecov.io/gh/aave/aave-stake-v2/branch/master/graph/badge.svg?token=0rtEtFEtgN)](https://codecov.io/gh/aave/aave-stake-v2)
 
+# Differences from https://github.com/aave/aave-stake-v2
+
+This fork was created on August 2, 2021.
+The master branch of this repo is the result of the following:
+
+1. Started from `master` branch of aave in commit [b9e40fb](https://github.com/aave/aave-stake-v2/commit/b9e40fb1c14df7e3874e4def53860d0f53c1d958)
+2. Merged PR https://github.com/aave/aave-stake-v2/pull/2 // slashing implementation
+3. Merged PR https://github.com/aave/aave-stake-v2/pull/6 // claim helper
+4. Merged PR https://github.com/aave/aave-stake-v2/pull/7 // claim helper update
+5. Merged PR https://github.com/aave/aave-stake-v2/pull/10 // ExchangeRate snapshot
+
+Also added the following temporary commits to solve merge issues, contract compiles and typescript errors
+1. [Temp Fixes after merge feat/slashing-implementation](https://github.com/patitonar/aave-stake-v2/commit/424a35bc6cbb3ee65af7da024a68c51f8272524a)
+2. [Temp Fixes after merge feat/governance-newpower-exchange-rate](https://github.com/patitonar/aave-stake-v2/commit/b1ce7f373d72b9c1fd00205e42646afea22ae494)
+3. [Add removed external configureAssets](https://github.com/patitonar/aave-stake-v2/commit/bcbfe4b3b279b32ba3c95fabcf759291b62691a4)
+
 # Aave Incentives contracts
 
 Sets of smart contracts to enable stake of Aave-related assets and rewards distribution based on them.
