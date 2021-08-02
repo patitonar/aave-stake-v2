@@ -109,7 +109,6 @@ const config: HardhatUserConfig = {
     forkNetwork: '3030', //Network id of the network we want to fork
   },
   networks: {
-    tenderly: getCommonNetworkConfig(eEthereumNetwork.tenderly, 3030),
     kovan: getCommonNetworkConfig(eEthereumNetwork.kovan, 42),
     ropsten: getCommonNetworkConfig(eEthereumNetwork.ropsten, 3),
     main: getCommonNetworkConfig(eEthereumNetwork.main, 1),

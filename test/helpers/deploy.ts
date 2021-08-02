@@ -77,7 +77,7 @@ export const testDeployAaveStakeV1 = async (
 
   const peiEncodedInitialize = aaveIncentivesControllerImplementation.interface.encodeFunctionData(
     'initialize',
-    [vaultOfRewardsAddress, distribution, distributionAdmin]
+    [vaultOfRewardsAddress]
   );
   await aaveIncentivesControllerProxy['initialize(address,address,bytes)'](
     aaveIncentivesControllerImplementation.address,

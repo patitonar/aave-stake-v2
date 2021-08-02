@@ -195,7 +195,7 @@ export const deployStakedTokenV2Revision3 = async (
   ];
   const instance = await deployContract<StakedTokenV2Rev3>(id, args, '', signer);
   if (verify) {
-    await verifyContract(instance.address, args);
+    await verifyContract(id, instance, args);
   }
   return instance;
 };
@@ -245,7 +245,7 @@ export const deployStakedTokenBptRevision2 = async (
   ];
   const instance = await deployContract<StakedTokenBptRev2>(id, args, '', signer);
   if (verify) {
-    await verifyContract(instance.address, args);
+    await verifyContract(id, instance, args);
   }
   return instance;
 };
@@ -348,7 +348,7 @@ export const deployAaveIncentivesController = async (
   verify?: boolean
 ) => {
   const id = eContractid.AaveIncentivesController;
-  const args: string[] = [rewardToken, aavePsm, extraPsmReward, emissionManager];
+  const args: string[] = [rewardToken, emissionManager];
   const instance = await deployContract<AaveIncentivesController>(id, args);
   await instance.deployTransaction.wait();
   if (verify) {
@@ -417,6 +417,9 @@ export const getMintableErc20 = getContractFactory<MintableErc20>(eContractid.Mi
 
 export const getStakedAave = getContractFactory<StakedAave>(eContractid.StakedAave);
 export const getStakedAaveV2 = getContractFactory<StakedAaveV2>(eContractid.StakedAaveV2);
+export const getAaveIncentivesController = getContractFactory<AaveIncentivesController>(
+  eContractid.AaveIncentivesController
+);
 
 export const getStakedAaveProxy = async (address?: tEthereumAddress) => {
   return await getContract<InitializableAdminUpgradeabilityProxy>(
@@ -447,9 +450,6 @@ export const getStakedTokenV3 = async (address?: tEthereumAddress) => {
       (await getDb().get(`${eContractid.StakedTokenV2}.${DRE.network.name}`).value()).address
   );
 };
-
-export const getAaveIncentivesController = async (address: tEthereumAddress) =>
-  await getContract<AaveIncentivesController>(eContractid.AaveIncentivesController, address);
 
 export const getIErc20Detailed = getContractFactory<Ierc20Detailed>(eContractid.IERC20Detailed);
 
