@@ -12,7 +12,7 @@ import {
   ZERO_ADDRESS,
 } from '../../helpers/constants';
 import { deployStakedAaveV3, deployStakedTokenV3 } from '../../helpers/contracts-accessors';
-import { checkVerification, verifyContract } from '../../helpers/etherscan-verification';
+import { checkVerification, verifyEtherscanContract } from '../../helpers/etherscan-verification';
 
 const { StakedAave, StakedAaveImpl } = eContractid;
 
@@ -64,7 +64,7 @@ task(`deploy-StakeAave-implementation`, `Deploys the ${StakedAave} V3 implementa
     await registerContractInJsonDb(StakedAaveImpl, stakedAaveImpl);
 
     if (verify) {
-      await verifyContract(stakedAaveImpl.address, constructorArguments);
+      await verifyEtherscanContract(stakedAaveImpl.address, constructorArguments);
     }
 
     console.log(`\tFinished ${StakedAave} proxy and implementation deployment`);

@@ -42,7 +42,7 @@ export const deployStakeUIHelper = async (
   const args: string[] = [priceOracle, bptPriceFeed, aave, stkAave, bpt, stkBpt];
   const instance = await deployContract<StakeUiHelper>(id, args);
   if (verify) {
-    await verifyContract(instance.address, args);
+    await verifyContract(id, instance, args);
   }
   return instance;
 };
@@ -59,7 +59,7 @@ export const deployClaimHelper = async (
   const args: string[] = [aaveStakeTokenAddress, bptStakeTokenAddress, aaveToken];
   const instance = await deployContract<ClaimStakingRewardsHelper>(id, args);
   if (verify) {
-    await verifyContract(instance.address, args);
+    await verifyContract(id, instance, args);
   }
   return instance;
 };

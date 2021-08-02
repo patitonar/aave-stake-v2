@@ -2,7 +2,7 @@
 pragma solidity 0.7.5;
 pragma experimental ABIEncoderV2;
 
-import {ERC20} from '@aave/aave-token/contracts/open-zeppelin/ERC20.sol';
+import {ERC20} from '../lib/aave-token/ERC20.sol';
 
 import {IERC20} from '../interfaces/IERC20.sol';
 import {IStakedToken} from '../interfaces/IStakedToken.sol';
