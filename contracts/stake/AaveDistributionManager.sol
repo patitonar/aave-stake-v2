@@ -22,9 +22,9 @@ contract AaveDistributionManager {
   }
 
   uint256 private immutable _distributionEnd;
-  
+
   address public immutable EMISSION_MANAGER;
- 
+
   uint8 public constant PRECISION = 18;
 
   mapping(address => AssetData) public assets;
@@ -41,6 +41,18 @@ contract AaveDistributionManager {
   constructor(address emissionManager, uint256 distributionEnd) public {
     EMISSION_MANAGER = emissionManager;
     _distributionEnd = distributionEnd;
+  }
+
+  /**
+   * @dev Configures the distribution of rewards for a list of assets
+   * @param assetsConfigInput The list of configurations to apply
+   **/
+  function configureAssets(DistributionTypes.AssetConfigInput[] calldata assetsConfigInput)
+    external
+  {
+    require(msg.sender == EMISSION_MANAGER, 'ONLY_EMISSION_MANAGER');
+
+    _configureAssets(assetsConfigInput);
   }
 
   /**
